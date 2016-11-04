@@ -1,9 +1,7 @@
-
 package pack_main;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
@@ -11,27 +9,31 @@ import javafx.stage.Stage;
 
 
 public class ClsMain extends Application {
+	final int btnWidth = 270;
 
 	@Override
-	public void start(Stage primaryStage) {
-		Button btn = new Button();
-		btn.setText("Display Friend Picture and Sound File");
-		btn.setOnAction(new EventHandler<ActionEvent>() {
+	public void start(Stage stage) {
 
-			@Override
-			public void handle(ActionEvent event) {
-				System.out.println("Hello World!");
-			}
-		});
+		VBox mainMenuVBox = new VBox(15);
+		Scene scene = new Scene(mainMenuVBox, 300, 250);
 
-		VBox mainMenuGrid = new VBox();
-		mainMenuGrid.getChildren().add(btn);
+		// Buttons. 
+		Button btnDisplay = new Button("Display Friend Picture and Sound File");
+		btnDisplay.setPrefWidth(btnWidth);
+		//		btnDisplay.setOnAction(); 
 
-		Scene scene = new Scene(mainMenuGrid, 300, 250);
+		Button btnFriendsList = new Button("View Friends List");
+		btnFriendsList.setPrefWidth(btnWidth);
 
-		primaryStage.setTitle("Main Menu");
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		Button btnExit = new Button("Exit");
+		btnExit.setPrefWidth(btnWidth);
+
+		mainMenuVBox.getChildren().addAll(btnDisplay, btnFriendsList, btnExit);
+		mainMenuVBox.setPadding(new Insets(50, 5, 5, 10));
+
+		stage.setTitle("Main Menu");
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	public static void main(String[] args) {
