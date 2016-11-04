@@ -1,13 +1,13 @@
-package packfriendcegep;
+package packFriendCEGEP;
 
 
-public class clsFriend {
+public class ClsFriend {
     int FriendID; // must be unique integer
     String Name;
     int Age;
-    clsCEGEP School_Name;
+    ClsCEGEP School_Name;
     
-    public clsFriend(int FriendID, String Name, int Age) {
+    public ClsFriend(int FriendID, String Name, int Age) {
         this.FriendID = FriendID;
         this.Name = Name;
         this.Age = Age; 
@@ -37,11 +37,11 @@ public class clsFriend {
         this.Age = Age;
     }
 
-    public clsCEGEP getSchool_Name() {
+    public ClsCEGEP getSchool_Name() {
         return School_Name;
     }
 
-    public void setSchool_Name(clsCEGEP School_Name) {
+    public void setSchool_Name(ClsCEGEP School_Name) {
         this.School_Name = School_Name;
     }
     

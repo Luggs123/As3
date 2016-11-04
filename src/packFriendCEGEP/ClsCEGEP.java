@@ -1,12 +1,12 @@
-package packfriendcegep;
+package packFriendCEGEP;
 
-public class clsCEGEP {
+public class ClsCEGEP {
     
     int CEGEPID; // must be unique integer
     String cegepName;
     String City;
     
-    public clsCEGEP(int CEGEPID, String cegepName, String City) { 
+    public ClsCEGEP(int CEGEPID, String cegepName, String City) { 
         this.CEGEPID = CEGEPID;
         this.cegepName = cegepName;
         this.City = City;
