@@ -1,4 +1,4 @@
-package application;
+package pack_test;
 
 import java.util.Random;
 

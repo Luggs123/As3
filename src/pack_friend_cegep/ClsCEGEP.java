@@ -1,4 +1,4 @@
-package packFriendCEGEP;
+package pack_friend_cegep;
 
 public class ClsCEGEP {
     
