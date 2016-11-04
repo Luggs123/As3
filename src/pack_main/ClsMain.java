@@ -18,7 +18,7 @@ public class ClsMain extends Application {
 		Scene scene = new Scene(mainMenuVBox, 300, 250);
 
 		// Buttons. 
-		Button btnDisplay = new Button("Display Friend Picture and Sound File");
+		Button btnDisplay = new Button("Display Friends");
 		btnDisplay.setPrefWidth(btnWidth);
 		//		btnDisplay.setOnAction(); 
 
