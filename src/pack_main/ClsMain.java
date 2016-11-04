@@ -10,7 +10,11 @@ import javafx.stage.Stage;
 
 public class ClsMain extends Application {
 	final int btnWidth = 270;
-
+	
+	static Button btnDisplay = new Button("Display Friend Picture and Sound File");
+	static Button btnFriendsList = new Button("View Friends List");
+	static Button btnExit = new Button("Exit");
+	
 	@Override
 	public void start(Stage stage) {
 
@@ -18,14 +22,10 @@ public class ClsMain extends Application {
 		Scene scene = new Scene(mainMenuVBox, 300, 250);
 
 		// Buttons. 
-		Button btnDisplay = new Button("Display Friend Picture and Sound File");
 		btnDisplay.setPrefWidth(btnWidth);
 		//		btnDisplay.setOnAction(); 
-
-		Button btnFriendsList = new Button("View Friends List");
 		btnFriendsList.setPrefWidth(btnWidth);
 
-		Button btnExit = new Button("Exit");
 		btnExit.setPrefWidth(btnWidth);
 
 		mainMenuVBox.getChildren().addAll(btnDisplay, btnFriendsList, btnExit);
