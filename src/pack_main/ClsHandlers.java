@@ -3,7 +3,7 @@ package pack_main;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 
-public class ClsHandlers implements EventHandler{
+public class ClsHandlers implements EventHandler<Event> {
 
 	@Override
 	public void handle(Event event) {

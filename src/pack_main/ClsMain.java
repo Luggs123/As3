@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 public class ClsMain extends Application {
 	final int btnWidth = 270;
 	
-	static Button btnDisplay = new Button("Display Friend Picture and Sound File");
+	static Button btnDisplay = new Button("Display Friends");
 	static Button btnFriendsList = new Button("View Friends List");
 	static Button btnExit = new Button("Exit");
 	
