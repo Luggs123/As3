@@ -8,8 +8,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 
-public class ClsMain extends Application {
-	final int btnWidth = 270;
+public class ClsMain extends Application implements IntConstants{
 	
 	static Button btnDisplay = new Button("Display Friend Picture and Sound File");
 	static Button btnFriendsList = new Button("View Friends List");
