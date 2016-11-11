@@ -18,7 +18,7 @@ public class ClsFriend {
     }
 
     public void setFriendID(int FriendID) {
-        this.FriendID = ++FriendID; 
+        this.FriendID = FriendID; 
     }
 
     public String getName() {

@@ -1,9 +1,17 @@
+// TODO: CHECK PROGRAM FUNCTION
+/*** Program Function; To create and display a list of given friends.
+ *** Creator; Paul Gaudnik, Mark Jarjour, Michael Luger
+ *** Submission Date; November 15th, 2016
+ *** Date Last Modified; October 19th, 2016
+ ***/
+
 package pack_main;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -16,16 +24,18 @@ public class ClsMain extends Application implements IntConstants{
 	
 	@Override
 	public void start(Stage stage) {
-
 		VBox mainMenuVBox = new VBox(15);
 		Scene scene = new Scene(mainMenuVBox, 300, 250);
 
 		// Buttons. 
 		btnDisplay.setPrefWidth(btnWidth);
-		//		btnDisplay.setOnAction(); 
+		btnDisplay.addEventHandler(MouseEvent.MOUSE_CLICKED, new ClsHandlers());
+		
 		btnFriendsList.setPrefWidth(btnWidth);
+		btnFriendsList.addEventHandler(MouseEvent.MOUSE_CLICKED, new ClsHandlers());
 
 		btnExit.setPrefWidth(btnWidth);
+		btnExit.addEventHandler(MouseEvent.MOUSE_CLICKED, new ClsHandlers());
 
 		mainMenuVBox.getChildren().addAll(btnDisplay, btnFriendsList, btnExit);
 		mainMenuVBox.setPadding(new Insets(50, 5, 5, 10));

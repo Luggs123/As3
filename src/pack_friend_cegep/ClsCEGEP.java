@@ -17,7 +17,7 @@ public class ClsCEGEP {
     }
 
     public void setCEGEPID(int CEGEPID) {
-        this.CEGEPID = ++CEGEPID;
+        this.CEGEPID = CEGEPID;
     }
 
     public String getCegepName() {
