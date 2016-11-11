@@ -1,6 +1,8 @@
 package pack_main;
 
 import javafx.application.Application;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -23,16 +25,24 @@ public class ClsFriendsList extends Application implements IntConstants {
 
 		primaryStage.setTitle("WinPictSound");
 		primaryStage.setScene(scenePictSound);
-		primaryStage.show();
+		primaryStage.hide();
 		
-		// WinButtons
+		/*** WinButtons ***/
 		Stage secondaryStage = new Stage();
 		VBox buttonsVBox = new VBox(10);
 		Scene sceneButtons = new Scene(buttonsVBox, 300, 500);
 		
 		// Buttons
 		btnAdd.setPrefWidth(btnWidth);
-		btnAdd.addEventHandler(MouseEvent.MOUSE_CLICKED, new ClsHandlers());
+		// TODO: Does this have to be inline?
+		btnAdd.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<Event>()
+				{
+					@Override
+					public void handle(Event event) {
+						primaryStage.show();
+					}
+			
+				});
 
 		buttonsVBox.getChildren().addAll(btnAdd);
 		
@@ -40,5 +50,8 @@ public class ClsFriendsList extends Application implements IntConstants {
 		secondaryStage.setScene(sceneButtons);
 		secondaryStage.show();
 	}
-
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
 }

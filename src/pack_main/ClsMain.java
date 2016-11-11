@@ -7,6 +7,11 @@
 
 package pack_main;
 
+import pack_friend_cegep.*;
+
+import java.util.LinkedList;
+import java.util.List;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -16,7 +21,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 
-public class ClsMain extends Application implements IntConstants{
+public class ClsMain extends Application implements IntConstants {
+	
+	protected static List<ClsFriend> friendsList = new LinkedList<ClsFriend>();
 	
 	static Button btnDisplay = new Button("Display Friends");
 	static Button btnFriendsList = new Button("View Friends List");
