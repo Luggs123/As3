@@ -1,6 +1,8 @@
 package pack_main;
 
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import pack_friend_cegep.ClsFriend;
@@ -21,8 +23,21 @@ public class ClsHandlers implements EventHandler<Event> {
 		}
 		/*** ClsFriendsList ***/
 		else if (source == ClsFriendsList.btnAdd) { // Add friend.
-//			ClsFriendsList.
+			
 		}
+
+		else if (source == ClsFriendsList.btnEdit) { // Search for and edit friends list.
+			if (!searchFriendsList(0/*edit ID form*/));
+		}
+	}
+	
+	class checkBoolChange implements ChangeListener<Boolean> {
+
+		@Override
+		public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+			
+		}
+		
 	}
 	
 	// Search for a friend ID inside the database and return true if one is found.
