@@ -46,10 +46,12 @@ public class ClsHandlers implements EventHandler<Event> {
 			ClsDisplayFriends.btnNext.setVisible(true);
 		}
                 else if (source == ClsFriendsList.btnSave) {
-                    if (catchNumberFormatError(ClsFriendsList.IdField, "Please enter a valid \"Unit ID\" parameter.")) { return; }
-                    if (catchNumberFormatError(ClsFriendsList.nameField, "Please enter a valid \"Unit ID\" parameter.")) { return; }
-                    if (catchNumberFormatError(ClsFriendsList.ageField, "Please enter a valid \"Unit ID\" parameter.")) { return; }
-                    if (catchNumberFormatError(ClsFriendsList.schoolField, "Please enter a valid \"Unit ID\" parameter.")) { return; } 
+                    if (ClsMain.catchNumberFormatError(ClsFriendsList.idField, "Please enter a valid \"Student ID\" parameter.")) { return; }
+                    if (ClsMain.catchNumberFormatError(ClsFriendsList.ageField, "Please enter a valid \"Age\" parameter.")) { return; }
+
+                    // TODO: Check if their empty instead.
+                    if (ClsMain.catchNumberFormatError(ClsFriendsList.nameField, "Please enter a valid \"Unit ID\" parameter.")) { return; }
+                    if (ClsMain.catchNumberFormatError(ClsFriendsList.schoolField, "Please enter a valid \"Unit ID\" parameter.")) { return; } 
                 }
 	}
 	

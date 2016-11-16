@@ -10,13 +10,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 public class ClsFriendsList implements IntConstants {
-    
-        // Labels and text fields.
-	static protected Label nameLabel = new Label("Name: ");
-	static protected TextField nameField = new TextField();	
-	static protected Label ageLabel = new Label("Age: ");
-	static protected TextField ageField = new TextField();	
-	static protected Label schoolLabel = new Label("School Name: ");
+
+	// Text fields.
+	static protected TextField idField = new TextField();
+	static protected TextField nameField = new TextField();
+	static protected TextField ageField = new TextField();
 	static protected TextField schoolField = new TextField();
 
 	static protected Button btnAdd = new Button("Add Friend");
@@ -25,8 +23,9 @@ public class ClsFriendsList implements IntConstants {
 	static protected Button btnSearch = new Button("Search for Friend");
 	static protected Button btnSave = new Button("Save Friend Data");
 	static protected Button btnDone = new Button("Done");
-	
-	static protected Label errLabel = new Label(); // For displaying user input errors.
+
+	static protected Label errLabel = new Label(); // For displaying user input
+													// errors.
 
 	protected static Pane createWinPictSound() {
 		// Separate VBoxes for labels and text fields.
@@ -35,17 +34,15 @@ public class ClsFriendsList implements IntConstants {
 
 		HBox pictSoundHBox = new HBox(10);
 		pictSoundHBox.setPadding(new Insets(20));
-
-		pictSoundVBoxLabels.getChildren().addAll(
-				nameLabel,
-				ageLabel,
-				schoolLabel
-				);
-		pictSoundVBoxField.getChildren().addAll(
-				nameField,
-				ageField,
-				schoolField
-				);
+		
+		// Labels
+		Label idLabel = new Label("Student ID: ");
+		Label nameLabel = new Label("Name: ");
+		Label ageLabel = new Label("Age: ");
+		Label schoolLabel = new Label("School Name: ");
+		
+		pictSoundVBoxLabels.getChildren().addAll(idLabel, nameLabel, ageLabel, schoolLabel);
+		pictSoundVBoxField.getChildren().addAll(idField, nameField, ageField, schoolField);
 
 		pictSoundHBox.getChildren().addAll(pictSoundVBoxLabels, pictSoundVBoxField);
 

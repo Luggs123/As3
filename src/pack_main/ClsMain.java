@@ -23,21 +23,26 @@ import javafx.stage.Stage;
 import pack_friend_cegep.ClsCEGEP;
 import pack_friend_cegep.ClsFriend;
 
-
 public class ClsMain extends Application implements IntConstants {
-	
+
 	static protected List<ClsFriend> friendsList = new LinkedList<ClsFriend>();
-	static protected List<ClsCEGEP> cegepList = new LinkedList<ClsCEGEP>(); // Has to be accessed from ClsFriend.
-	
+	static protected List<ClsCEGEP> cegepList = new LinkedList<ClsCEGEP>(); // Has
+																			// to
+																			// be
+																			// accessed
+																			// from
+																			// ClsFriend.
+
 	static protected Scene scene; // Main Scene
-	static protected HBox winMain = new HBox(); // Main HBox used to place WinButtons and WinPictSound.
+	static protected HBox winMain = new HBox(); // Main HBox used to place
+												// WinButtons and WinPictSound.
 	static protected VBox winButtons = new VBox();
 	static protected VBox winPictSound = new VBox();
-	
+
 	static protected Button btnDisplay = new Button("Display Friends");
 	static protected Button btnFriendsList = new Button("View Friends List");
 	static protected Button btnExit = new Button("Exit");
-	
+
 	@Override
 	public void start(Stage stage) {
 		winButtons = new VBox(15);
@@ -47,10 +52,10 @@ public class ClsMain extends Application implements IntConstants {
 		winMain.getChildren().addAll(winButtons, winPictSound);
 		scene = new Scene(winMain, 800, 600);
 
-		// Buttons. 
+		// Buttons.
 		btnDisplay.setPrefWidth(btnWidth);
 		btnDisplay.addEventHandler(MouseEvent.MOUSE_CLICKED, new ClsHandlers());
-		
+
 		btnFriendsList.setPrefWidth(btnWidth);
 		btnFriendsList.addEventHandler(MouseEvent.MOUSE_CLICKED, new ClsHandlers());
 
@@ -64,26 +69,23 @@ public class ClsMain extends Application implements IntConstants {
 		stage.setScene(scene);
 		stage.show();
 	}
-        
-        	public static Boolean catchNumberFormatError(TextField textfield, String errorMessage)
-	{
-		try
-		{
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+	
+	public static Boolean catchNumberFormatError(TextField textfield, String errorMessage) {
+		try {
 			// Parse text field.
 			Integer.parseInt(textfield.getText());
 		}
 
-		catch (NumberFormatException nfe)
-		{
+		catch (NumberFormatException nfe) {
 			// If an error is caught then throw an error dialog.
 			ClsFriendsList.errLabel.setText(errorMessage);
 			return true;
 		}
 
 		return false;
-	}
-
-	public static void main(String[] args) {
-		launch(args);
 	}
 }
