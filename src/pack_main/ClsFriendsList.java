@@ -10,6 +10,14 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 public class ClsFriendsList implements IntConstants {
+    
+        // Labels and text fields.
+	static protected Label nameLabel = new Label("Name: ");
+	static protected TextField nameField = new TextField();	
+	static protected Label ageLabel = new Label("Age: ");
+	static protected TextField ageField = new TextField();	
+	static protected Label schoolLabel = new Label("School Name: ");
+	static protected TextField schoolField = new TextField();
 
 	static protected Button btnAdd = new Button("Add Friend");
 	static protected Button btnEdit = new Button("Edit Friend");
@@ -27,16 +35,6 @@ public class ClsFriendsList implements IntConstants {
 
 		HBox pictSoundHBox = new HBox(10);
 		pictSoundHBox.setPadding(new Insets(20));
-
-		// Labels and text fields.
-		Label nameLabel = new Label("Name: ");
-		TextField nameField = new TextField();
-		
-		Label ageLabel = new Label("Age: ");
-		TextField ageField = new TextField();
-		
-		Label schoolLabel = new Label("School Name: ");
-		TextField schoolField = new TextField();
 
 		pictSoundVBoxLabels.getChildren().addAll(
 				nameLabel,

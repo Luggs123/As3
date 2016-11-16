@@ -45,6 +45,12 @@ public class ClsHandlers implements EventHandler<Event> {
 			ClsDisplayFriends.btnPrev.setVisible(true);
 			ClsDisplayFriends.btnNext.setVisible(true);
 		}
+                else if (source == ClsFriendsList.btnSave) {
+                    if (catchNumberFormatError(ClsFriendsList.IdField, "Please enter a valid \"Unit ID\" parameter.")) { return; }
+                    if (catchNumberFormatError(ClsFriendsList.nameField, "Please enter a valid \"Unit ID\" parameter.")) { return; }
+                    if (catchNumberFormatError(ClsFriendsList.ageField, "Please enter a valid \"Unit ID\" parameter.")) { return; }
+                    if (catchNumberFormatError(ClsFriendsList.schoolField, "Please enter a valid \"Unit ID\" parameter.")) { return; } 
+                }
 	}
 	
 	// Search for a friend ID inside the database and return true if one is found.
