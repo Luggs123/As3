@@ -1,7 +1,6 @@
 package pack_main;
 
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -18,6 +17,8 @@ public class ClsFriendsList implements IntConstants {
 	static protected Button btnSearch = new Button("Search for Friend");
 	static protected Button btnSave = new Button("Save Friend Data");
 	static protected Button btnDone = new Button("Done");
+	
+	static protected Label errLabel = new Label();
 
 	public static Pane createWinPictSound() {
 		// Separate VBoxes for labels and text fields.
@@ -25,18 +26,28 @@ public class ClsFriendsList implements IntConstants {
 		VBox pictSoundVBoxField = new VBox(10);
 
 		HBox pictSoundHBox = new HBox(10);
-		pictSoundHBox.setPrefWidth(400);
 		pictSoundHBox.setPadding(new Insets(20));
 
 		// Labels and text fields.
-		Label idLabel = new Label("Student ID: ");
-		TextField idField = new TextField();
-
 		Label nameLabel = new Label("Name: ");
 		TextField nameField = new TextField();
+		
+		Label ageLabel = new Label("Age: ");
+		TextField ageField = new TextField();
+		
+		Label schoolLabel = new Label("School Name: ");
+		TextField schoolField = new TextField();
 
-		pictSoundVBoxLabels.getChildren().addAll(idLabel, nameLabel);
-		pictSoundVBoxField.getChildren().addAll(idField, nameField);
+		pictSoundVBoxLabels.getChildren().addAll(
+				nameLabel,
+				ageLabel,
+				schoolLabel
+				);
+		pictSoundVBoxField.getChildren().addAll(
+				nameField,
+				ageField,
+				schoolField
+				);
 
 		pictSoundHBox.getChildren().addAll(pictSoundVBoxLabels, pictSoundVBoxField);
 
@@ -45,8 +56,6 @@ public class ClsFriendsList implements IntConstants {
 
 	public static Pane createWinButtons() {
 		VBox buttonsVBox = new VBox(10);
-		buttonsVBox.setPrefWidth(400);
-		buttonsVBox.setAlignment(Pos.CENTER);
 
 		// Buttons
 		btnAdd.setPrefWidth(btnWidth);

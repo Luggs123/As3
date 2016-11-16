@@ -41,8 +41,13 @@ public class ClsHandlers implements EventHandler<Event> {
 	// Clears the windows inside the main container and replaces them with the desired panes.
 	// Accepts a pane so that HBoxes don't have to be raped in a redundant VBox.
 	public static void updateVBoxes(Pane winButtons, Pane winPictSound) {
+		// Restore main panes to their defaults.
 		ClsMain.winButtons.getChildren().clear();
 		ClsMain.winPictSound.getChildren().clear();
+		ClsMain.winButtons.setAlignment(null);
+		ClsMain.winPictSound.setAlignment(null);
+		ClsMain.winButtons.setPrefWidth(400);
+		ClsMain.winPictSound.setPrefWidth(400);
 		
 		ClsMain.winButtons.getChildren().add(winButtons);
 		ClsMain.winPictSound.getChildren().add(winPictSound);
