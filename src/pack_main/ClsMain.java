@@ -24,18 +24,14 @@ import pack_friend_cegep.ClsCEGEP;
 import pack_friend_cegep.ClsFriend;
 
 public class ClsMain extends Application implements IntConstants {
-
+	
+	static protected List<ClsCEGEP> cegepList = new LinkedList<ClsCEGEP>();
 	static protected List<ClsFriend> friendsList = new LinkedList<ClsFriend>();
-	static protected List<ClsCEGEP> cegepList = new LinkedList<ClsCEGEP>(); // Has
-																			// to
-																			// be
-																			// accessed
-																			// from
-																			// ClsFriend.
+	
+	static protected String[] friendsDatabase = new String[]{ "Mark", "Michael", "Paul", "Juan", "Syphen", "JavaMM" };
 
 	static protected Scene scene; // Main Scene
-	static protected HBox winMain = new HBox(); // Main HBox used to place
-												// WinButtons and WinPictSound.
+	static protected HBox winMain = new HBox(); // Main HBox used to place WinButtons and WinPictSound.
 	static protected VBox winButtons = new VBox();
 	static protected VBox winPictSound = new VBox();
 
@@ -45,12 +41,13 @@ public class ClsMain extends Application implements IntConstants {
 
 	@Override
 	public void start(Stage stage) {
+		// Scenes.
 		winButtons = new VBox(15);
 		winButtons.setPrefWidth(800);
 		winButtons.setAlignment(Pos.TOP_CENTER);
 		winPictSound.setVisible(false);
 		winMain.getChildren().addAll(winButtons, winPictSound);
-		scene = new Scene(winMain, 800, 600);
+		scene = new Scene(winMain, 800, 400);
 
 		// Buttons.
 		btnDisplay.setPrefWidth(btnWidth);
@@ -74,15 +71,15 @@ public class ClsMain extends Application implements IntConstants {
 		launch(args);
 	}
 	
-	public static Boolean catchNumberFormatError(TextField textfield, String errorMessage) {
+	public static Boolean catchNumberFormatError(TextField textfield, String errMsg) {
 		try {
 			// Parse text field.
 			Integer.parseInt(textfield.getText());
 		}
 
 		catch (NumberFormatException nfe) {
-			// If an error is caught then throw an error dialog.
-			ClsFriendsList.errLabel.setText(errorMessage);
+			// If an error is caught then throw an error message.
+			ClsFriendsList.errLabel.setText(errMsg);
 			return true;
 		}
 

@@ -15,13 +15,6 @@ public class ClsFriend {
 		this.School_Name = School_Name;
 	}
 
-	public ClsFriend(String Name, int Age, String School_Name, String School_City) {
-		this.FriendID = counter++;
-		this.Name = Name;
-		this.Age = Age;
-		this.School_Name = new ClsCEGEP(School_Name, School_City);
-	}
-
 	public int getFriendID() {
 		return FriendID;
 	}
@@ -44,5 +37,9 @@ public class ClsFriend {
 
 	public void setAge(int Age) {
 		this.Age = Age;
+	}
+	
+	public ClsCEGEP getSchool_Name() {
+		return School_Name;
 	}
 }
