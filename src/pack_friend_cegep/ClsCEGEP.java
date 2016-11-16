@@ -2,22 +2,19 @@ package pack_friend_cegep;
 
 public class ClsCEGEP {
     
-    int CEGEPID; // must be unique integer
-    String cegepName;
-    String City;
+	static private int counter;
+    private int CEGEPID; // must be unique integer
+	private String cegepName;
+	private  String City;
     
-    public ClsCEGEP(int CEGEPID, String cegepName, String City) { 
-        this.CEGEPID = CEGEPID;
+    public ClsCEGEP(String cegepName, String City) { 
+        this.CEGEPID = counter++;
         this.cegepName = cegepName;
         this.City = City;
     }
 
     public int getCEGEPID() {
         return CEGEPID;
-    }
-
-    public void setCEGEPID(int CEGEPID) {
-        this.CEGEPID = CEGEPID;
     }
 
     public String getCegepName() {

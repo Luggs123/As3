@@ -1,6 +1,7 @@
 package pack_main;
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -24,6 +25,7 @@ public class ClsFriendsList implements IntConstants {
 		VBox pictSoundVBoxField = new VBox(10);
 
 		HBox pictSoundHBox = new HBox(10);
+		pictSoundHBox.setPrefWidth(400);
 		pictSoundHBox.setPadding(new Insets(20));
 
 		// Labels and text fields.
@@ -43,6 +45,8 @@ public class ClsFriendsList implements IntConstants {
 
 	public static Pane createWinButtons() {
 		VBox buttonsVBox = new VBox(10);
+		buttonsVBox.setPrefWidth(400);
+		buttonsVBox.setAlignment(Pos.CENTER);
 
 		// Buttons
 		btnAdd.setPrefWidth(btnWidth);

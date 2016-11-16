@@ -2,23 +2,24 @@ package pack_friend_cegep;
 
 public class ClsFriend {
 
-	int FriendID; // must be unique integer
-	String Name;
-	int Age;
-	ClsCEGEP School_Name;
+	static private int counter;
+	private int FriendID; // must be unique integer
+	private String Name;
+	private int Age;
+	private ClsCEGEP School_Name;
 
-	public ClsFriend(int FriendID, String Name, int Age, ClsCEGEP School_Name) {
-		this.FriendID = FriendID;
+	public ClsFriend(String Name, int Age, ClsCEGEP School_Name) {
+		this.FriendID = counter++;
 		this.Name = Name;
 		this.Age = Age;
 		this.School_Name = School_Name;
 	}
 
-	public ClsFriend(int FriendID, String Name, int Age, int School_ID, String School_Name, String School_City) {
-		this.FriendID = FriendID;
+	public ClsFriend(String Name, int Age, String School_Name, String School_City) {
+		this.FriendID = counter++;
 		this.Name = Name;
 		this.Age = Age;
-		this.School_Name = new ClsCEGEP(School_ID, School_Name, School_City);
+		this.School_Name = new ClsCEGEP(School_Name, School_City);
 	}
 
 	public int getFriendID() {
@@ -44,13 +45,4 @@ public class ClsFriend {
 	public void setAge(int Age) {
 		this.Age = Age;
 	}
-
-	public ClsCEGEP getSchool_Name() {
-		return School_Name;
-	}
-
-	public void setSchool_Name(String School_Name) {
-		this.School_Name = new ClsCEGEP(Age, School_Name, School_Name);
-	}
-
 }
