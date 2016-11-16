@@ -41,7 +41,7 @@ public class ClsMain extends Application implements IntConstants {
 	public void start(Stage stage) {
 		winButtons = new VBox(15);
 		winButtons.setPrefWidth(800);
-		winButtons.setAlignment(Pos.BASELINE_CENTER);
+		winButtons.setAlignment(Pos.TOP_CENTER);
 		winPictSound.setVisible(false);
 		winMain.getChildren().addAll(winButtons, winPictSound);
 		scene = new Scene(winMain, 800, 600);

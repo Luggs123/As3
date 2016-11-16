@@ -18,9 +18,9 @@ public class ClsFriendsList implements IntConstants {
 	static protected Button btnSave = new Button("Save Friend Data");
 	static protected Button btnDone = new Button("Done");
 	
-	static protected Label errLabel = new Label();
+	static protected Label errLabel = new Label(); // For displaying user input errors.
 
-	public static Pane createWinPictSound() {
+	protected static Pane createWinPictSound() {
 		// Separate VBoxes for labels and text fields.
 		VBox pictSoundVBoxLabels = new VBox(18);
 		VBox pictSoundVBoxField = new VBox(10);
@@ -54,7 +54,7 @@ public class ClsFriendsList implements IntConstants {
 		return pictSoundHBox;
 	}
 
-	public static Pane createWinButtons() {
+	protected static Pane createWinButtons() {
 		VBox buttonsVBox = new VBox(10);
 
 		// Buttons
