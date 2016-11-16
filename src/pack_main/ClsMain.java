@@ -15,6 +15,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -62,6 +63,24 @@ public class ClsMain extends Application implements IntConstants {
 		stage.setTitle("Assignment 3");
 		stage.setScene(scene);
 		stage.show();
+	}
+        
+        	public static Boolean catchNumberFormatError(TextField textfield, String errorMessage)
+	{
+		try
+		{
+			// Parse text field.
+			Integer.parseInt(textfield.getText());
+		}
+
+		catch (NumberFormatException nfe)
+		{
+			// If an error is caught then throw an error dialog.
+			ClsFriendsList.errLabel.setText(errorMessage);
+			return true;
+		}
+
+		return false;
 	}
 
 	public static void main(String[] args) {

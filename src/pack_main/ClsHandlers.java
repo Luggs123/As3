@@ -26,17 +26,23 @@ public class ClsHandlers implements EventHandler<Event> {
 		}
 
 		else if (source == ClsFriendsList.btnEdit) { // Search for and edit friends list.
-			if (!searchFriendsList(0/*edit ID form*/));
+			//if (!searchFriendsList(0/*edit ID form*/));
 		}
+                else if (source == ClsFriendsList.btnSave) {
+                    if (catchNumberFormatError(ClsFriendsList.IdField, "Please enter a valid \"Unit ID\" parameter.")) { return; }
+                    if (catchNumberFormatError(ClsFriendsList.nameField, "Please enter a valid \"Unit ID\" parameter.")) { return; }
+                    if (catchNumberFormatError(ClsFriendsList.ageField, "Please enter a valid \"Unit ID\" parameter.")) { return; }
+                    if (catchNumberFormatError(ClsFriendsList.schoolField, "Please enter a valid \"Unit ID\" parameter.")) { return; } 
+                }
 	}
 	
 	// Search for a friend ID inside the database and return true if one is found.
-	public static Boolean searchFriendsList(int friendID) {
-		for (ClsFriend list : ClsMain.friendsList) {
-			if (list.getFriendID() == friendID) { return true; }
-		}
-		return false;
-	}
+            public static ClsFriend searchFriendsList(int friendID) {
+                    for (ClsFriend list : ClsMain.friendsList) {
+                        if (list.getFriendID() == friendID) { return list; }
+                    }
+                    return null;
+                }
 	
 	// Clears the windows inside the main container and replaces them with the desired panes.
 	// Accepts a pane so that HBoxes don't have to be raped in a redundant VBox.
