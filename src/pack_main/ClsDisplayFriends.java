@@ -18,7 +18,7 @@ public class ClsDisplayFriends implements IntConstants {
 	static protected Button btnAuto = new Button("Automatic");
 	static protected Button btnPrev = new Button("Previous");
 	static protected Button btnNext = new Button("Next");
-	static protected Button btnSouns = new Button("Save Friend Data");
+	static protected Button btnSound = new Button("Save Friend Data");
 	static protected Button btnDone = new Button("Done");
 	
 	protected static Pane createWinButtons() {
@@ -38,6 +38,10 @@ public class ClsDisplayFriends implements IntConstants {
 		btnNext.setPrefWidth(btnWidth / 2);
 		btnNext.addEventHandler(MouseEvent.MOUSE_CLICKED, new ClsHandlers());
 		btnNext.setVisible(false);
+		
+		btnSound.setPrefWidth(btnWidth / 2);
+		btnSound.addEventHandler(MouseEvent.MOUSE_CLICKED, new ClsHandlers());
+		btnSound.setVisible(false);
 		
 		HBox manualButtons = new HBox();
 		manualButtons.getChildren().addAll(btnPrev, btnNext);

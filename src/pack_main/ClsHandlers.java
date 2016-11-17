@@ -18,10 +18,6 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 		/*** ClsMain ***/
 		if (source == ClsMain.btnDisplay) { // Open friends display.
 			updateVBoxes(ClsDisplayFriends.createWinButtons(), ClsDisplayFriends.updateWinPictSound());
-
-			// Hide these buttons by default.
-			ClsDisplayFriends.btnPrev.setVisible(false);
-			ClsDisplayFriends.btnNext.setVisible(false);
 		}
 
 		else if (source == ClsMain.btnFriendsList) { // Open friends list.
@@ -70,14 +66,13 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 			ClsFriend foundedFriend = searchFriendsList(Integer.parseInt(ClsFriendsList.idField.getText()));
 			if (foundedFriend == null) {
 				// No friend was found on the current friends list.
-				ClsFriendsList.errLabel.setText("The \"School Name\" parameter is empty.");
+				ClsFriendsList.errLabel.setText("No friend with that ID was found in the database.");
 				return;
 			}
 			
-			// Prevent the fields from being edited.
+			// Otherwise it found one.
 			searchMode(true);
 			
-			// Otherwise it found one.
 			ClsFriendsList.idField.setText(Integer.toString(foundedFriend.getFriendID()));
 			ClsFriendsList.nameField.setText(foundedFriend.getName());
 			ClsFriendsList.ageField.setText(Integer.toString(foundedFriend.getAge()));
@@ -101,7 +96,7 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 			else {
 				Boolean doesExist = false;
 				for (int i = 0; i < ClsMain.friendsDatabase.length; i++) {
-					if (ClsMain.friendsDatabase[i] == ClsFriendsList.nameField.getText()) {
+					if (ClsMain.friendsDatabase[i].equalsIgnoreCase(ClsFriendsList.nameField.getText())) {
 						doesExist = true;
 						break;
 					}
@@ -133,6 +128,9 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 			ClsMain.friendsList.add(new ClsFriend(Integer.parseInt(ClsFriendsList.idField.getText()),
 					ClsFriendsList.nameField.getText(),
 					Integer.parseInt(ClsFriendsList.ageField.getText()), newCEGEP));
+			
+			// Clear all the labels of any previous information.
+			clearLabels();
 		}
 
 		/*** ClsDisplayFriends ***/
