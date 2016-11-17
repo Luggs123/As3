@@ -118,7 +118,8 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 			for (ClsCEGEP list : ClsMain.cegepList) {
 				if (list.getCegepName() == schoolName) {
 					// If the CEGEP object already exists then use that object instead.
-					ClsMain.friendsList.add(new ClsFriend(ClsFriendsList.idField.getText(),
+					ClsMain.friendsList.add(new ClsFriend(Integer.parseInt(ClsFriendsList.idField.getText()),
+							ClsFriendsList.nameField.getText(),
 							Integer.parseInt(ClsFriendsList.ageField.getText()), list));
 					
 					// Clear all the labels of any previous information.
@@ -129,7 +130,8 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 			
 			// Otherwise create a new CEGEP object.
 			ClsCEGEP newCEGEP = new ClsCEGEP(schoolName, "Montreal");
-			ClsMain.friendsList.add(new ClsFriend(ClsFriendsList.idField.getText(),
+			ClsMain.friendsList.add(new ClsFriend(Integer.parseInt(ClsFriendsList.idField.getText()),
+					ClsFriendsList.nameField.getText(),
 					Integer.parseInt(ClsFriendsList.ageField.getText()), newCEGEP));
 		}
 
