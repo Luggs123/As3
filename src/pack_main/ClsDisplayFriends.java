@@ -7,6 +7,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import pack_friend_cegep.ClsFriend;
 
 public class ClsDisplayFriends implements IntConstants {
@@ -14,6 +15,7 @@ public class ClsDisplayFriends implements IntConstants {
 	// True: Manual
 	// False: Automatic
 	static protected Boolean displayMode;
+	static protected Boolean soundToggle;
 	
 	static protected int counter = 0;
 	
@@ -63,7 +65,11 @@ public class ClsDisplayFriends implements IntConstants {
 		Image friendImage = new Image("Resources/gfx/" + friendName + ".png");
 		ImageView friendIcon = new ImageView(friendImage);
 		displayPane.getChildren().add(friendIcon);
-		
+
+		// If sound is on then play a file.
+		AudioClip friendSample = new AudioClip("Resources/sfx/" + friendName + ".wav");
+		friendSample.play();
+
 		return displayPane;
 	}
 }
