@@ -3,6 +3,7 @@ package pack_main;
 import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import pack_friend_cegep.ClsCEGEP;
 import pack_friend_cegep.ClsFriend;
@@ -38,12 +39,35 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 		}
 
 		else if (source == ClsFriendsList.btnEdit) { // Search for and edit friends list.
+			searchMode(false);
+		}
+		
+		else if (source == ClsFriendsList.btnDelete) { // Delete a friend.
+			ClsFriend foundedFriend = searchFriendsList(Integer.parseInt(ClsFriendsList.idField.getText()));
+			
+			
+			for (ClsFriend list : ClsMain.friendsList) {
+				if (list.getFriendID() == foundedFriend.getFriendID()) {
+					ClsMain.friendsList.remove(list);
+					
+					// Clear all the labels of any previous information.
+					clearLabels();
+					searchMode(true);
+					return;
+				}
+			}
+		}
+		
+		else if (source == ClsFriendsList.btnSearch) { // Searches and displays a friend's information.
 			ClsFriend foundedFriend = searchFriendsList(Integer.parseInt(ClsFriendsList.idField.getText()));
 			if (foundedFriend == null) {
 				// No friend was found on the current friends list.
 				ClsFriendsList.errLabel.setText("The \"School Name\" parameter is empty.");
 				return;
 			}
+			
+			// Prevent the fields from being edited.
+			searchMode(true);
 			
 			// Otherwise it found one.
 			ClsFriendsList.idField.setText(Integer.toString(foundedFriend.getFriendID()));
@@ -90,11 +114,7 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 							Integer.parseInt(ClsFriendsList.ageField.getText()), list));
 					
 					// Clear all the labels of any previous information.
-					ClsFriendsList.idField.setText(EMP_STR);
-					ClsFriendsList.nameField.setText(EMP_STR);
-					ClsFriendsList.ageField.setText(EMP_STR);
-					ClsFriendsList.schoolField.setText(EMP_STR);
-					ClsFriendsList.errLabel.setText(EMP_STR);
+					clearLabels();
 					return;
 				}
 			}
@@ -135,5 +155,30 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 		// Add the specified panes.
 		ClsMain.winButtons.getChildren().add(winButtons);
 		ClsMain.winPictSound.getChildren().add(winPictSound);
+	}
+	
+	// Prevents the text fields from being edited.
+	public static void searchMode(Boolean hide) {
+		ClsFriendsList.idField.setEditable(!hide);
+		ClsFriendsList.nameField.setEditable(!hide);
+		ClsFriendsList.ageField.setEditable(!hide);
+		ClsFriendsList.schoolField.setEditable(!hide);
+		
+		ClsFriendsList.btnAdd.setDisable(!hide);
+		ClsFriendsList.btnSearch.setDisable(!hide);
+		ClsFriendsList.btnSave.setDisable(!hide);
+		ClsFriendsList.btnDone.setDisable(!hide);
+		
+		ClsFriendsList.btnEdit.setDisable(hide);
+		ClsFriendsList.btnDelete.setDisable(hide);
+	}
+	
+	// Clears the text fields.
+	public static void clearLabels() {
+		ClsFriendsList.idField.setText(EMP_STR);
+		ClsFriendsList.nameField.setText(EMP_STR);
+		ClsFriendsList.ageField.setText(EMP_STR);
+		ClsFriendsList.schoolField.setText(EMP_STR);
+		ClsFriendsList.errLabel.setText(EMP_STR);
 	}
 }
