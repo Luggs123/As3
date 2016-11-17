@@ -65,9 +65,22 @@ public class ClsDisplayFriends implements IntConstants {
 		Image friendImage = new Image("Resources/gfx/" + friendName + ".png");
 		ImageView friendIcon = new ImageView(friendImage);
 		displayPane.getChildren().add(friendIcon);
+		
+		// Disable btnPrev or btnNext based on where the counter is.
+		if (counter == 0) {
+			btnPrev.setDisable(true);
+		} else {
+			btnPrev.setDisable(false);
+		}
+		
+		if (counter == ClsMain.friendsList.size() - 1) {
+			btnNext.setDisable(true);
+		} else {
+			btnNext.setDisable(false);
+		}
 
+		// If sound is on then play a file.
 		if (soundToggle) {
-			// If sound is on then play a file.
 			AudioClip audioSample = new AudioClip(ClsDisplayFriends.class.getResource("/Resources/sfx/" + friendName + ".wav").toString());
 			audioSample.play();
 		}

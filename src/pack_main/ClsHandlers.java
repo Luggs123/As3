@@ -138,22 +138,13 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 		}
 
 		else if (source == ClsDisplayFriends.btnPrev) { // Cycles to the previous friend.
-			if (ClsDisplayFriends.counter == 0) {
-				--ClsDisplayFriends.counter;
-				ClsDisplayFriends.updateWinPictSound();
-			}
+			--ClsDisplayFriends.counter;
+			ClsDisplayFriends.updateWinPictSound();
 		}
 
-		else if (source == ClsDisplayFriends.btnPrev) { // Cycles to the next friend.
-			if (ClsDisplayFriends.counter == ClsMain.friendsList.size() - 1) {
-				++ClsDisplayFriends.counter;
-				ClsDisplayFriends.updateWinPictSound();
-			}
-		}
-
-		else if (source == ClsDisplayFriends.btnMan) { // Displays the previous and next buttons.
-			ClsDisplayFriends.btnPrev.setVisible(true);
-			ClsDisplayFriends.btnNext.setVisible(true);
+		else if (source == ClsDisplayFriends.btnNext) { // Cycles to the next friend.
+			++ClsDisplayFriends.counter;
+			ClsDisplayFriends.updateWinPictSound();
 		}
 
 		else if (source == ClsDisplayFriends.btnSound) { // Toggle sound playing.
