@@ -66,6 +66,12 @@ public class ClsMain extends Application implements IntConstants {
 		// Buttons.
 		btnDisplay.setPrefWidth(btnWidth);
 		btnDisplay.addEventHandler(MouseEvent.MOUSE_CLICKED, new ClsHandlers());
+		
+		if (friendsList.isEmpty()) {
+			btnDisplay.setDisable(true);
+		} else {
+			btnDisplay.setDisable(false);
+		}
 
 		btnFriendsList.setPrefWidth(btnWidth);
 		btnFriendsList.addEventHandler(MouseEvent.MOUSE_CLICKED, new ClsHandlers());

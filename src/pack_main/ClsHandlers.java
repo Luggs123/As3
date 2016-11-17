@@ -39,15 +39,15 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 		else if (source == ClsFriendsList.btnEdit) { // Search for and edit friends list.
 			searchMode(false);
 		}
-		
+
 		else if (source == ClsFriendsList.btnDelete) { // Delete a friend.
 			ClsFriend foundedFriend = searchFriendsList(Integer.parseInt(ClsFriendsList.idField.getText()));
-			
-			
+
+
 			for (ClsFriend list : ClsMain.friendsList) {
 				if (list.getFriendID() == foundedFriend.getFriendID()) {
 					ClsMain.friendsList.remove(list);
-					
+
 					// Clear all the labels of any previous information.
 					clearLabels();
 					searchMode(true);
@@ -55,28 +55,28 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 				}
 			}
 		}
-		
+
 		else if (source == ClsFriendsList.btnSearch) { // Searches and displays a friend's information.
 			if (ClsMain.catchNumberFormatError(ClsFriendsList.idField, "Please enter a valid \"Student ID\" parameter.")) {
 				return;
 			}
-			
+
 			ClsFriend foundedFriend = searchFriendsList(Integer.parseInt(ClsFriendsList.idField.getText()));
 			if (foundedFriend == null) {
 				// No friend was found on the current friends list.
 				ClsFriendsList.errLabel.setText("No friend with that ID was found in the database.");
 				return;
 			}
-			
+
 			// Otherwise it found one.
 			searchMode(true);
-			
+
 			ClsFriendsList.idField.setText(Integer.toString(foundedFriend.getFriendID()));
 			ClsFriendsList.nameField.setText(foundedFriend.getName());
 			ClsFriendsList.ageField.setText(Integer.toString(foundedFriend.getAge()));
 			ClsFriendsList.schoolField.setText(foundedFriend.getSchool_Name().getCegepName());
 		}
-		
+
 		else if (source == ClsFriendsList.btnSave) { // Save the friend input data, assuming it is valid.
 			// Checking if the inputs are valid.
 			if (ClsMain.catchNumberFormatError(ClsFriendsList.idField, "Please enter a valid \"Student ID\" parameter.")
@@ -89,7 +89,7 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 				ClsFriendsList.errLabel.setText("The \"School Name\" parameter is empty.");
 				return;
 			}
-			
+
 			// Check if the friend is in the database.
 			else {
 				Boolean doesExist = false;
@@ -99,13 +99,13 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 						break;
 					}
 				}
-				
+
 				if (!doesExist) {
 					ClsFriendsList.errLabel.setText("The specified friend does not exist in the database.");
 					return;
 				}
 			}
-			
+
 			// Check if the CEGEP already exists use that object.
 			String schoolName = ClsFriendsList.schoolField.getText();
 			for (ClsCEGEP list : ClsMain.cegepList) {
@@ -114,19 +114,19 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 					ClsMain.friendsList.add(new ClsFriend(Integer.parseInt(ClsFriendsList.idField.getText()),
 							ClsFriendsList.nameField.getText(),
 							Integer.parseInt(ClsFriendsList.ageField.getText()), list));
-					
+
 					// Clear all the labels of any previous information.
 					clearLabels();
 					return;
 				}
 			}
-			
+
 			// Otherwise create a new CEGEP object.
 			ClsCEGEP newCEGEP = new ClsCEGEP(schoolName, "Montreal");
 			ClsMain.friendsList.add(new ClsFriend(Integer.parseInt(ClsFriendsList.idField.getText()),
 					ClsFriendsList.nameField.getText(),
 					Integer.parseInt(ClsFriendsList.ageField.getText()), newCEGEP));
-			
+
 			// Clear all the labels of any previous information.
 			clearLabels();
 		}
@@ -136,11 +136,30 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 			ClsDisplayFriends.btnPrev.setVisible(true);
 			ClsDisplayFriends.btnNext.setVisible(true);
 		}
-		
+
+		else if (source == ClsDisplayFriends.btnPrev) { // Cycles to the previous friend.
+			if (ClsDisplayFriends.counter == 0) {
+				--ClsDisplayFriends.counter;
+				ClsDisplayFriends.updateWinPictSound();
+			}
+		}
+
+		else if (source == ClsDisplayFriends.btnPrev) { // Cycles to the next friend.
+			if (ClsDisplayFriends.counter == ClsMain.friendsList.size() - 1) {
+				++ClsDisplayFriends.counter;
+				ClsDisplayFriends.updateWinPictSound();
+			}
+		}
+
+		else if (source == ClsDisplayFriends.btnMan) { // Displays the previous and next buttons.
+			ClsDisplayFriends.btnPrev.setVisible(true);
+			ClsDisplayFriends.btnNext.setVisible(true);
+		}
+
 		else if (source == ClsDisplayFriends.btnSound) { // Toggle sound playing.
 			ClsDisplayFriends.soundToggle = !ClsDisplayFriends.soundToggle;
 		}
-		
+
 		else if (source == ClsFriendsList.btnDone || source == ClsDisplayFriends.btnDone) { // Return to main menu.
 			clearLabels();
 			searchMode(false);
@@ -174,22 +193,22 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 		ClsMain.winButtons.getChildren().add(winButtons);
 		ClsMain.winPictSound.getChildren().add(winPictSound);
 	}
-	
+
 	// Prevents the text fields from being edited.
 	public static void searchMode(Boolean hide) {
 		ClsFriendsList.idField.setEditable(!hide);
 		ClsFriendsList.nameField.setEditable(!hide);
 		ClsFriendsList.ageField.setEditable(!hide);
 		ClsFriendsList.schoolField.setEditable(!hide);
-		
+
 		ClsFriendsList.btnAdd.setDisable(hide);
 		ClsFriendsList.btnSearch.setDisable(hide);
 		ClsFriendsList.btnSave.setDisable(hide);
-		
+
 		ClsFriendsList.btnEdit.setDisable(!hide);
 		ClsFriendsList.btnDelete.setDisable(!hide);
 	}
-	
+
 	// Clears the text fields.
 	public static void clearLabels() {
 		ClsFriendsList.idField.setText(EMP_STR);
