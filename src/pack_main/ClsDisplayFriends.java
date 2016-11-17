@@ -12,6 +12,8 @@ public class ClsDisplayFriends implements IntConstants {
 	// False: Automatic
 	static protected Boolean displayMode;
 	
+	static protected int counter = 0;
+	
 	static protected Button btnMan = new Button("Manual");
 	static protected Button btnAuto = new Button("Automatic");
 	static protected Button btnPrev = new Button("Previous");
@@ -46,10 +48,8 @@ public class ClsDisplayFriends implements IntConstants {
 	}
 	
 	protected static Pane updateWinPictSound() {
-		VBox buttonsVBox = new VBox(10);
-		
 		HBox manualButtons = new HBox();
 
-		return buttonsVBox;
+		return manualButtons;
 	}
 }
