@@ -61,6 +61,7 @@ public class ClsMain extends Application implements IntConstants {
 	protected static Pane createWinButtons() {
 		VBox mainMenuVBox = new VBox(15);
 		mainMenuVBox.setAlignment(Pos.TOP_CENTER);
+		mainMenuVBox.setPadding(new Insets(50, 5, 5, 10));
 
 		// Buttons.
 		btnDisplay.setPrefWidth(btnWidth);

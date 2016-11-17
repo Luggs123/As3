@@ -140,11 +140,11 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 		}
 		
 		else if (source == ClsFriendsList.btnDone || source == ClsDisplayFriends.btnDone) { // Return to main menu.
+			clearLabels();
+			searchMode(false);
 			updateVBoxes(ClsMain.createWinButtons(), new VBox());
-			ClsMain.winPictSound.setVisible(false);
 			ClsMain.winPictSound.setPrefWidth(0);
 			ClsMain.winButtons.setPrefWidth(800);
-			ClsMain.winButtons.setPadding(new Insets(50, 5, 5, 10));
 		}
 	}
 
