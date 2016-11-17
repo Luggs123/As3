@@ -3,8 +3,10 @@ package pack_main;
 import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import pack_friend_cegep.ClsCEGEP;
 import pack_friend_cegep.ClsFriend;
 
@@ -129,6 +131,14 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 		else if (source == ClsDisplayFriends.btnMan) { // Displays the previous and next buttons.
 			ClsDisplayFriends.btnPrev.setVisible(true);
 			ClsDisplayFriends.btnNext.setVisible(true);
+		}
+		
+		else if (source == ClsFriendsList.btnDone || source == ClsDisplayFriends.btnDone) { // Return to main menu.
+			updateVBoxes(ClsMain.createWinButtons(), new VBox());
+			ClsMain.winPictSound.setVisible(false);
+			ClsMain.winPictSound.setPrefWidth(0);
+			ClsMain.winButtons.setPrefWidth(800);
+			ClsMain.winButtons.setPadding(new Insets(50, 5, 5, 10));
 		}
 	}
 

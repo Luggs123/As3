@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import pack_friend_cegep.ClsCEGEP;
@@ -42,12 +43,24 @@ public class ClsMain extends Application implements IntConstants {
 	@Override
 	public void start(Stage stage) {
 		// Scenes.
-		winButtons = new VBox(15);
-		winButtons.setPrefWidth(800);
-		winButtons.setAlignment(Pos.TOP_CENTER);
+		winButtons = new VBox();
+		winButtons = (VBox) createWinButtons();
+		
 		winPictSound.setVisible(false);
 		winMain.getChildren().addAll(winButtons, winPictSound);
 		scene = new Scene(winMain, 800, 400);
+		
+		winButtons.setPrefWidth(800);
+		winButtons.setPadding(new Insets(50, 5, 5, 10));
+
+		stage.setTitle("Assignment 3");
+		stage.setScene(scene);
+		stage.show();
+	}
+	
+	protected static Pane createWinButtons() {
+		VBox mainMenuVBox = new VBox(15);
+		mainMenuVBox.setAlignment(Pos.TOP_CENTER);
 
 		// Buttons.
 		btnDisplay.setPrefWidth(btnWidth);
@@ -59,12 +72,9 @@ public class ClsMain extends Application implements IntConstants {
 		btnExit.setPrefWidth(btnWidth);
 		btnExit.addEventHandler(MouseEvent.MOUSE_CLICKED, new ClsHandlers());
 
-		winButtons.getChildren().addAll(btnDisplay, btnFriendsList, btnExit);
-		winButtons.setPadding(new Insets(50, 5, 5, 10));
+		mainMenuVBox.getChildren().addAll(btnDisplay, btnFriendsList, btnExit);
 
-		stage.setTitle("Assignment 3");
-		stage.setScene(scene);
-		stage.show();
+		return mainMenuVBox;
 	}
 
 	public static void main(String[] args) {
