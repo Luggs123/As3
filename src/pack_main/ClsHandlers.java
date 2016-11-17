@@ -180,12 +180,12 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 		ClsFriendsList.ageField.setEditable(!hide);
 		ClsFriendsList.schoolField.setEditable(!hide);
 		
-		ClsFriendsList.btnAdd.setDisable(!hide);
-		ClsFriendsList.btnSearch.setDisable(!hide);
-		ClsFriendsList.btnSave.setDisable(!hide);
+		ClsFriendsList.btnAdd.setDisable(hide);
+		ClsFriendsList.btnSearch.setDisable(hide);
+		ClsFriendsList.btnSave.setDisable(hide);
 		
-		ClsFriendsList.btnEdit.setDisable(hide);
-		ClsFriendsList.btnDelete.setDisable(hide);
+		ClsFriendsList.btnEdit.setDisable(!hide);
+		ClsFriendsList.btnDelete.setDisable(!hide);
 	}
 	
 	// Clears the text fields.
