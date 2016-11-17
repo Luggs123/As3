@@ -133,8 +133,15 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 
 		/*** ClsDisplayFriends ***/
 		else if (source == ClsDisplayFriends.btnMan) { // Displays the previous and next buttons.
+			ClsDisplayFriends.soundToggle = true;
 			ClsDisplayFriends.btnPrev.setVisible(true);
 			ClsDisplayFriends.btnNext.setVisible(true);
+		}
+		
+		else if (source == ClsDisplayFriends.btnAuto) { // Displays the previous and next buttons.
+			ClsDisplayFriends.soundToggle = false;
+			ClsDisplayFriends.btnPrev.setVisible(false);
+			ClsDisplayFriends.btnNext.setVisible(false);
 		}
 
 		else if (source == ClsDisplayFriends.btnPrev) { // Cycles to the previous friend.
