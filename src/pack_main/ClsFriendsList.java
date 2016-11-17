@@ -68,17 +68,19 @@ public class ClsFriendsList implements IntConstants {
 		
 		btnEdit.setPrefWidth(btnWidth);
 		btnEdit.addEventHandler(MouseEvent.MOUSE_CLICKED, new ClsHandlers());
-		btnEdit.setDisable(false);
+		btnEdit.setDisable(true);
 		
 		btnDelete.setPrefWidth(btnWidth);
 		btnDelete.addEventHandler(MouseEvent.MOUSE_CLICKED, new ClsHandlers());
-		btnDelete.setDisable(false);
+		btnDelete.setDisable(true);
 		
 		btnSearch.setPrefWidth(btnWidth);
 		btnSearch.addEventHandler(MouseEvent.MOUSE_CLICKED, new ClsHandlers());
+		btnSearch.setDisable(true);
 		
 		btnSave.setPrefWidth(btnWidth);
 		btnSave.addEventHandler(MouseEvent.MOUSE_CLICKED, new ClsHandlers());
+		btnSave.setDisable(true);
 		
 		btnDone.setPrefWidth(btnWidth);
 		btnDone.addEventHandler(MouseEvent.MOUSE_CLICKED, new ClsHandlers());

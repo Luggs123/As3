@@ -38,6 +38,8 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 		/*** ClsFriendsList ***/
 		else if (source == ClsFriendsList.btnAdd) { // Display the add friend form.
 			ClsMain.winPictSound.setVisible(true);
+			ClsFriendsList.btnSearch.setDisable(false);
+			ClsFriendsList.btnSave.setDisable(false);
 		}
 
 		else if (source == ClsFriendsList.btnEdit) { // Search for and edit friends list.
@@ -61,6 +63,10 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 		}
 		
 		else if (source == ClsFriendsList.btnSearch) { // Searches and displays a friend's information.
+			if (ClsMain.catchNumberFormatError(ClsFriendsList.idField, "Please enter a valid \"Student ID\" parameter.")) {
+				return;
+			}
+			
 			ClsFriend foundedFriend = searchFriendsList(Integer.parseInt(ClsFriendsList.idField.getText()));
 			if (foundedFriend == null) {
 				// No friend was found on the current friends list.
@@ -177,7 +183,6 @@ public class ClsHandlers implements EventHandler<Event>, IntConstants {
 		ClsFriendsList.btnAdd.setDisable(!hide);
 		ClsFriendsList.btnSearch.setDisable(!hide);
 		ClsFriendsList.btnSave.setDisable(!hide);
-		ClsFriendsList.btnDone.setDisable(!hide);
 		
 		ClsFriendsList.btnEdit.setDisable(hide);
 		ClsFriendsList.btnDelete.setDisable(hide);
