@@ -1,10 +1,13 @@
 package pack_main;
 
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import pack_friend_cegep.ClsFriend;
 
 public class ClsDisplayFriends implements IntConstants {
 
@@ -52,8 +55,15 @@ public class ClsDisplayFriends implements IntConstants {
 	}
 	
 	protected static Pane updateWinPictSound() {
-		HBox manualButtons = new HBox();
-
-		return manualButtons;
+		HBox displayPane = new HBox();
+		
+		ClsFriend currentFriend = ClsMain.friendsList.get(counter);
+		String friendName = currentFriend.getName();
+		
+		Image friendImage = new Image("Resources/gfx/" + friendName + ".png");
+		ImageView friendIcon = new ImageView(friendImage);
+		displayPane.getChildren().add(friendIcon);
+		
+		return displayPane;
 	}
 }
